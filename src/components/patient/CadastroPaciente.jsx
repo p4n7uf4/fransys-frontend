@@ -8,7 +8,7 @@ const headerProps = {
     subtitle: 'Área para cadastrar seus pacientes!'
 }
 
-const baseURL = 'http://localhost:3001/patients'
+const baseURL = 'http://localhost:3005/patients'
 const initialState = {
     patient: {
         name: '',
@@ -33,7 +33,7 @@ export default class CadastroPaciente extends Component {
             .then(response => {
                 alert('Paciente adicionado com sucesso')
                 this.setState({ patient: initialState.patient })
-            })
+            }).catch(e => console.log(e))
     }
 
     updateField(event) {
@@ -61,7 +61,7 @@ export default class CadastroPaciente extends Component {
                             <input type="text" className="form-control" name="birthDate"
                                 value={this.state.patient.birthDate}
                                 onChange={e => this.updateField(e)}
-                                placeholder='Insira a data de nascimento do paciente' />
+                                placeholder='Digite a data de nascimento do paciente' />
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@ export default class CadastroPaciente extends Component {
                             <input type="text" className="form-control" name="endereco"
                                 value={this.state.patient.endereco}
                                 onChange={e => this.updateField(e)}
-                                placeholder='Insira o endereço do paciente' />
+                                placeholder='Digite o endereço do paciente' />
                         </div>
                     </div>
                     <div className="col-12 col-md-6">
@@ -81,7 +81,7 @@ export default class CadastroPaciente extends Component {
                             <input type="text" className="form-control" name="telephone"
                                 value={this.state.patient.telephone}
                                 onChange={e => this.updateField(e)}
-                                placeholder='Insira a data de nascimento do paciente' />
+                                placeholder='Digite o telefone do paciente' />
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ export default class CadastroPaciente extends Component {
                             <textarea name="anamnese" cols="100" rows="5" className='form-control'
                                 value={this.state.patient.anamnese}
                                 onChange={e => this.updateField(e)}
-                                placeholder='Insira aqui a anamnese do seu paciente' />
+                                placeholder='Digite aqui a anamnese do seu paciente' />
                         </div>
                     </div>
                 </div>
